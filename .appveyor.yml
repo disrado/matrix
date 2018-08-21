@@ -1,0 +1,48 @@
+version: 1.0.{build}
+
+image:
+  - Visual Studio 2017
+
+# Scripts that are called at very beginning, before repo cloning.
+init:
+  - git config --global core.autocrlf input
+
+skip_commits:
+  files:
+    - scripts/**/*
+    - .travis.yml
+    - '**/*.md'
+
+clone_folder: c:\projects\dev
+
+# Fetch repository as zip archive.
+shallow_clone: true
+
+matrix:
+  # Set this flag to immediately finish build once one of the jobs fails.
+  fast_finish: false
+
+install:
+  # Downloading conan.
+  - cmd: set PATH=%PATH%;%PYTHON%/Scripts/
+  - cmd: pip.exe install conan
+  # Create conan data directory.
+  - cmd: conan user
+
+platform:
+  - x64
+
+configuration:
+  - Debug
+  - Release
+
+before_build:
+  - cmd: conan --version
+  - cmd: cmake --version
+
+build_script:
+  - cd scripts/
+  - build-msvc15-x64-release.cmd
+
+test_script:
+  - ctest --extra-verbose --parallel 2
