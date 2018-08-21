@@ -33,7 +33,6 @@ platform:
   - x64
 
 configuration:
-  - Debug
   - Release
 
 before_build:
@@ -43,10 +42,6 @@ before_build:
 build_script:
   - cd scripts/
   - build-msvc15-x64-release.cmd
-
-after_build:
-  - cd ../build/msvc15-x64-release/bin/
-  - MatrixTests.exe
 
 test_script:
   - ctest -C %BUILD_CONFIGURATION% ./tests
