@@ -1,13 +1,10 @@
 #!/bin/sh
 
 # Configure build variables.
-BUILD_MODE=Release
+BUILD_MODE=release
 BUILD_ARCH=x64
 BUILD_DIR=../build/gcc-${BUILD_ARCH}-${BUILD_MODE}
-ENABLE_TESTING=FALSE
-ENABLE_CPPCHECK=FALSE
-ENABLE_CLANG_TIDY=FALSE
-ENABLE_VALGRIND=FALSE
+ENABLE_TESTING=TRUE
 
 # Color configuration.
 COLOR_OFF='\033[0m'
@@ -31,11 +28,13 @@ CheckError() {
 }
 
 PrintInfoMsg "Creating a build directory..."
-mkdir -p build && cd build
 mkdir -p ${BUILD_DIR}
 CheckError "Failed to make the build directory."
 
 cd ${BUILD_DIR}
+
+pwd
+ls -all
 
 PrintInfoMsg "[Conan] Downloading packages..."
 conan install \

@@ -35,12 +35,8 @@ matrix:
             - ubuntu-toolchain-r-test
       script:
         - cd "${TRAVIS_BUILD_DIR}"
-        - mkdir -p build && cd build
-        - |
-          conan install .. --build missing \
-            -s build_type=${BUILD_TYPE} \
-        - cmake .. -DCMAKE_BUILD_TYPE:STRING=${BUILD_TYPE}
-        - cmake --build . --config ${BUILD_TYPE} -- -j2
+        - cd scripts
+        - ./build-gcc-x64-release
 
 install:
   # Set up the environment.
