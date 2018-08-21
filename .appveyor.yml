@@ -44,5 +44,9 @@ build_script:
   - cd scripts/
   - build-msvc15-x64-release.cmd
 
+after_build:
+  - cd ../build/msvc15-x64-release/bin/
+  - MatrixTests.exe
+
 test_script:
-  - ctest --extra-verbose --parallel 2
+  - ctest -C %BUILD_CONFIGURATION% ./tests
