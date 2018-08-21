@@ -92,11 +92,11 @@ size_t getSizeOfLongestSameElementsSet(const std::vector<T>& row)
 template<typename T>
 Matrix<T>::Matrix(const size_t size)
 	: size_(size)
-	, matrix_(Matrix<T>::Vector2d<T>(size, std::vector<T>(size)))
+	, matrix_(Matrix<T>::Vector2d(size, std::vector<T>(size)))
 { }
 
 template<typename T>
-Matrix<T>::Matrix(const Matrix<T>::Vector2d<T>& matrix)
+Matrix<T>::Matrix(const Matrix<T>::Vector2d& matrix)
 {
 	for (const auto& row : matrix)
 	{

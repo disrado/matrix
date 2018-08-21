@@ -41,7 +41,6 @@ matrix:
             -s build_type=${BUILD_TYPE} \
         - cmake .. -DCMAKE_BUILD_TYPE:STRING=${BUILD_TYPE}
         - cmake --build . --config ${BUILD_TYPE} -- -j2
-        - ctest -C ${BUILD_TYPE} --extra-verbose --parallel $CPU_COUNT ./tests
 
 install:
   # Set up the environment.

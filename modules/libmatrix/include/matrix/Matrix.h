@@ -16,7 +16,6 @@ class Matrix final
 	//
 public:
 	//! The two dimensional matrix from two std::vectors.
-	template<typename T>
 	using Vector2d = std::vector<std::vector<T>>;
 
 	//
@@ -26,7 +25,7 @@ public:
 	//! Constructor.
 	explicit Matrix(const size_t size);
 	//! Constructor.
-	explicit Matrix(const Vector2d<T>& matrix);
+	explicit Matrix(const Vector2d& matrix);
 
 	//
 	// Public interface.
@@ -75,7 +74,7 @@ private:
 	//! Size of matrix.
 	size_t size_;
 	//! Matrix.
-	Vector2d<T> matrix_;
+	Vector2d matrix_;
 };
 
 //! Adds two matrices and return result of operation.
