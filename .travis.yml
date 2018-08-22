@@ -22,15 +22,15 @@ matrix:
     #
     - os: linux
       env:
-        - JOB="GCC 7 Release"
-        - CC_COMPILER=gcc-7
-        - CXX_COMPILER=g++-7
+        - JOB="GCC 8 Release"
+        - CC_COMPILER=gcc-8
+        - CXX_COMPILER=g++-8
         - BUILD_TYPE=Release
-      addons: &gcc7
+      addons: &gcc8
         apt:
           packages:
-            - gcc-7
-            - g++-7
+            - gcc-8
+            - g++-8
           sources:
             - ubuntu-toolchain-r-test
       script:
@@ -41,6 +41,32 @@ matrix:
             -s build_type=${BUILD_TYPE} \
         - cmake .. -DCMAKE_BUILD_TYPE:STRING=${BUILD_TYPE}
         - cmake --build . --config ${BUILD_TYPE} -- -j2
+
+    #
+    # GCC 8 Release + tests.
+    #
+    - os: linux
+      env:
+        - JOB="GCC 8 Release + Codecov and Coveralls"
+        - CC_COMPILER=gcc-8
+        - CXX_COMPILER=g++-8
+        - BUILD_TYPE=Release
+        - ENABLE_TESTING=TRUE
+      addons: *gcc8
+      script:
+        - cd "${TRAVIS_BUILD_DIR}"
+        - mkdir -p build && cd build
+        - |
+          conan install .. --build missing \
+            -s build_type=${BUILD_TYPE} \
+            -s compiler.libcxx=libstdc++11
+        - |
+          cmake .. \
+            -DCMAKE_BUILD_TYPE:STRING=${BUILD_MODE} \
+            -DENABLE_TESTING:BOOL=${ENABLE_TESTING} \
+        - cmake --build . --config ${BUILD_TYPE} -- -j2
+      after_success:
+        - ctest --extra-verbose --parallel 2
 
 install:
   # Set up the environment.
