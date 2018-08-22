@@ -3,13 +3,6 @@ language: cpp
 sudo: required
 dist: trusty
 
-# safelist
-branches:
-  only:
-  - master
-  - dev
-  - feature/travis
-
 matrix:
   include:
 
