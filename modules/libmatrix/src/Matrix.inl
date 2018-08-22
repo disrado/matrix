@@ -317,7 +317,7 @@ Matrix<T>& Matrix<T>::operator*=(const Matrix<T>& matrix)
 		}
 	}
 
-	std::swap(*this, std::move(result));
+	std::swap(*this, result);
 
 	return *this;
 }
