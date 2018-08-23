@@ -78,7 +78,6 @@ TEST(Matrix, ReplaceRow)
 	const std::vector<int64_t> newInvalidRow = { 4, 4, 4, 4 };
 	
 	ASSERT_THROW(mtx.ReplaceRow(0, newInvalidRow), std::logic_error);
-
 }
 
 TEST(Matrix, ReplaceColumn)
@@ -94,7 +93,6 @@ TEST(Matrix, ReplaceColumn)
 	const std::vector<int64_t> newInvalidColumn= { 4, 4, 4, 4 };
 	
 	ASSERT_THROW(mtx.ReplaceColumn(0, newInvalidColumn), std::logic_error);
-
 }
 
 TEST(Matrix, GetLocalMinimums)
@@ -199,12 +197,12 @@ TEST(Matrix, OperatorNotEqual)
 
 TEST(Matrix, OperatorAddAndAssign)
 {
-	const std::vector<std::vector<int32_t>> mtx_1 = {
+	const std::vector<std::vector<int32_t>> mtxTemplate_1 = {
 		{ 1,-1 },
 		{ 1, 1 }
 	};
 
-	const std::vector<std::vector<int32_t>> mtx_2 = {
+	const std::vector<std::vector<int32_t>> mtxTemplate_2 = {
 		{ 1, 1 },
 		{ 1,-1 }
 	};
@@ -235,12 +233,12 @@ TEST(Matrix, OperatorAddAndAssign)
 
 TEST(Matrix, OperatorSubtractAndAssign)
 {
-	const std::vector<std::vector<int32_t>> mtx_1 = {
+	const std::vector<std::vector<int32_t>> mtxTemplate_1 = {
 		{ 1, 2 },
 		{ 1, 2 }
 	};
 
-	const std::vector<std::vector<int32_t>> mtx_2 = {
+	const std::vector<std::vector<int32_t>> mtxTemplate_2 = {
 		{ 1, 1 },
 		{ 1, 1 }
 	};
@@ -271,12 +269,12 @@ TEST(Matrix, OperatorSubtractAndAssign)
 
 TEST(Matrix, OperatorMultiplyAndAssign)
 {
-	const std::vector<std::vector<int32_t>> mtx_1 = {
+	const std::vector<std::vector<int32_t>> mtxTemplate_1 = {
 		{ 4, 2 },
 		{ 9, 0 }
 	};
 
-	const std::vector<std::vector<int32_t>> mtx_2 = {
+	const std::vector<std::vector<int32_t>> mtxTemplate_2 = {
 		{ 3, 1 },
 		{-3, 4 }
 	};
