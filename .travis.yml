@@ -15,15 +15,15 @@ matrix:
     #
     - os: linux
       env:
-        - JOB="GCC 8 Release"
-        - CC_COMPILER=gcc-8
-        - CXX_COMPILER=g++-8
+        - JOB="GCC 7 Release"
+        - CC_COMPILER=gcc-7
+        - CXX_COMPILER=g++-7
         - BUILD_TYPE=Release
-      addons: &gcc8
+      addons: &gcc7
         apt:
           packages:
-            - gcc-8
-            - g++-8
+            - gcc-7
+            - g++-7
           sources:
             - ubuntu-toolchain-r-test
       script:
@@ -36,16 +36,16 @@ matrix:
         - cmake --build . --config ${BUILD_TYPE} -- -j2
 
     #
-    # GCC 8 Release + tests.
+    # GCC 7 Release + tests.
     #
     - os: linux
       env:
-        - JOB="GCC 8 Release + Codecov and Coveralls"
-        - CC_COMPILER=gcc-8
-        - CXX_COMPILER=g++-8
+        - JOB="GCC 7 Release + Codecov and Coveralls"
+        - CC_COMPILER=gcc-7
+        - CXX_COMPILER=g++-7
         - BUILD_TYPE=Release
         - ENABLE_TESTING=TRUE
-      addons: *gcc8
+      addons: *gcc7
       script:
         - cd "${TRAVIS_BUILD_DIR}"
         - mkdir -p build && cd build
@@ -83,8 +83,4 @@ install:
       mkdir cmake && travis_retry wget --no-check-certificate -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
       export PATH=${DEPS_DIR}/cmake/bin:${PATH}
       sudo pip install conan
-    else
-      brew update
-      brew install cmake || brew upgrade cmake
-      brew install conan || brew upgrade conan
     fi
