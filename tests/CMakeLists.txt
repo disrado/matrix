@@ -17,6 +17,7 @@ function(create_test name library)
 		PRIVATE
 			$<$<CXX_COMPILER_ID:MSVC>:
 				/W3 /MP4
+				-DSILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
 				$<$<CONFIG:Debug>:/MTd>
 				$<$<CONFIG:Release>:/MT>>
 	)

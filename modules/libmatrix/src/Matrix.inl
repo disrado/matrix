@@ -10,7 +10,7 @@ void shiftCircle(std::vector<T>& circle, int offset)
 	if (circle.size() == offset) {
 		return;
 	} else if (std::abs(offset) > circle.size()) {
-		offset = circle.size() % offset;
+		offset = offset % circle.size();
 	}
 
 	if (offset > 0) {

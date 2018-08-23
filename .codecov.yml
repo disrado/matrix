@@ -13,7 +13,7 @@ coverage:
       default:
         target: 80%
   ignore:
-  - "modules/matrix"
+    - "modules/matrix"
 
 comment:
   layout: "diff"
