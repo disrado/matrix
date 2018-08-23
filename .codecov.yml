@@ -1,5 +1,5 @@
 decov:
-  branch: dev
+  branch: feature/codecov
 
 coverage:
   precision: 2
