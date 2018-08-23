@@ -1,5 +1,5 @@
 decov:
-  branch: feature/codecov
+  branch: master
 
 coverage:
   precision: 2
@@ -12,10 +12,8 @@ coverage:
     patch:
       default:
         target: 80%
+  ignore:
+  - "modules/matrix"
 
 comment:
   layout: "diff"
-
-coverage:
-  ignore:
-    - "modules/matrix"
