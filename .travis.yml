@@ -61,6 +61,8 @@ matrix:
       after_success:
         - ctest --extra-verbose --parallel 2
         - |
+          lcov --directory . --capture --output-file coverage.info # capture coverage info
+          lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
           # Codecov - upload the report.
           bash <(curl -s https://codecov.io/bash)
 
