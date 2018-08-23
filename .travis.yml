@@ -45,6 +45,7 @@ matrix:
         - CXX_COMPILER=g++-7
         - BUILD_TYPE=Release
         - ENABLE_TESTING=TRUE
+        - ENABLE_COVERAGE=TRUE
       addons: *gcc7
       script:
         - cd "${TRAVIS_BUILD_DIR}"
@@ -57,6 +58,7 @@ matrix:
           cmake .. \
             -DCMAKE_BUILD_TYPE:STRING=${BUILD_MODE} \
             -DENABLE_TESTING:BOOL=${ENABLE_TESTING} \
+            -DENABLE_COVERAGE:BOOL=${ENABLE_COVERAGE}
         - cmake --build . --config ${BUILD_TYPE} -- -j2
       after_success:
         - ctest --extra-verbose --parallel 2
