@@ -60,6 +60,9 @@ matrix:
         - cmake --build . --config ${BUILD_TYPE} -- -j2
       after_success:
         - ctest --extra-verbose --parallel 2
+        - |
+          # Codecov - upload the report.
+          bash <(curl -s https://codecov.io/bash)
 
 install:
   # Set up the environment.
