@@ -1,15 +1,4 @@
-#ifdef WIN32
-#pragma warning(push)
-// warning C4996: 'std::tr1': warning STL4002: The non-Standard st
-// d::tr1 namespace and TR1-only machinery are deprecated and will be REMOVED
-#pragma warning(disable : 4996)
-#endif
-
 #include <gtest/gtest.h>
-
-#ifdef WIN32
-#pragma warning(pop)
-#endif
 
 #include <matrix/Matrix.h>
 

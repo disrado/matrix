@@ -53,7 +53,7 @@ matrix:
         - cd "${TRAVIS_BUILD_DIR}"
         - mkdir -p build && cd build
         - |
-          conan install .. --build missing \
+          conan install .. --build \
             -s build_type=${BUILD_TYPE} \
             -s compiler.libcxx=libstdc++11
         - |
