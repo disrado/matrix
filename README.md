@@ -1,7 +1,7 @@
 # Matrix
 
 master|dev
----|---
+:---:|:---:
 |[![Build Status](https://travis-ci.org/disrado/matrix.svg?branch=master)](https://travis-ci.org/disrado/matrix)|[![Build Status](https://travis-ci.org/disrado/matrix.svg?branch=dev)](https://travis-ci.org/disrado/matrix)
 |[![Build status](https://ci.appveyor.com/api/projects/status/bxnc5x8ra7y5h1w8?svg=true)](https://ci.appveyor.com/project/disrado/matrix)|[![Build status](https://ci.appveyor.com/api/projects/status/bxnc5x8ra7y5h1w8/branch/dev?svg=true)](https://ci.appveyor.com/project/disrado/matrix/branch/dev)
 |[![codecov](https://codecov.io/gh/disrado/matrix/branch/master/graph/badge.svg)](https://codecov.io/gh/disrado/matrix)|[![codecov](https://codecov.io/gh/disrado/matrix/branch/dev/graph/badge.svg)](https://codecov.io/gh/disrado/matrix)
